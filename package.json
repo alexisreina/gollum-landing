@@ -1,0 +1,24 @@
+{
+  "name": "gollum-landing",
+  "version": "1.0.0",
+  "description": "Gollum landing page",
+  "main": "Gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexisreina/gollum-landing.git"
+  },
+  "author": "Alexis Reina <alexis@coldbridgestudio.com>",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/alexisreina/gollum-landing/issues"
+  },
+  "homepage": "https://github.com/alexisreina/gollum-landing#readme",
+  "devDependencies": {
+    "browser-sync": "^2.23.6",
+    "gulp": "^3.9.1",
+    "gulp-inline-source": "^3.1.0"
+  }
+}
