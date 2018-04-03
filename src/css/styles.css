@@ -1,23 +1,51 @@
 @charset "UTF-8";
 
+@font-face {
+    font-family: 'Nexa';
+    src: url('/fonts/NexaRustScriptL-0-Free-webfont.woff2') format('woff2'),
+         url('/fonts/NexaRustScriptL-0-Free-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Museo';
+    src: url('/fonts/museosans-100.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
 *, *::before, *::after {
   box-sizing: inherit;
 }
 
 html {
-  line-height: 1.15; 
-  -webkit-text-size-adjust: 100%; 
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  color: purple;
+  color: #5B5B5B;
+  font-family: 'Museo', sans-serif;
+}
+
+p, h1 {
+  margin: 0;
+  margin-bottom: 1rem;
 }
 
 h1 {
   font-size: 2em;
-  margin: 0.67em 0;
+}
+
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 a {
@@ -39,4 +67,93 @@ img {
 
 [hidden] {
   display: none;
+}
+
+.layout {
+  display: grid;
+  min-height: 100vh;
+  align-content: stretch;
+  align-items: center;
+  justify-items: center;
+  grid-template-columns: calc(50% - 0.5rem) calc(50% - 0.5rem);
+  grid-template-rows: auto;
+  grid-column-gap: 1rem;
+  grid-row-gap: 1rem;
+  grid-template-areas:
+    "header header"
+    "image image"
+    "text text"
+    "footer footer";
+}
+
+@media(min-width: 660px) {
+  .layout {
+    grid-template-areas:
+      "header image"
+      "text image"
+      "footer footer"
+  }
+}
+
+.container {
+  min-height: 100vh;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background-color: #F8FAFC;
+}
+
+.wrapper {
+  max-width: 30rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  grid-area: header;
+  align-self: end;
+}
+
+.text {
+  grid-area: text;
+  align-self: start;
+}
+
+.image {
+  grid-area: image;
+}
+
+.footer {
+  grid-area: footer;
+  justify-self: stretch;
+  align-self: stretch;
+  margin-left: -1rem;
+  margin-right: -1rem;
+  background-color: #E4DED1;
+}
+
+.actions {
+  height: 100%;
+  display: grid;
+  align-content: stretch;
+  align-items: stretch;
+  justify-items: stretch;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "main-cta main-cta"
+    "maps instagram";
+}
+
+.call-us {
+  grid-area: main-cta;
+}
+
+.maps {
+  grid-area: maps;
+  background-color: #CDC7B9;
+}
+
+.instagram {
+  grid-area: instagram;
+  background-color: #A9A49A;
 }

@@ -4,21 +4,15 @@ const inlineSource = require('gulp-inline-source');
 const reload = browserSync.reload
 const stream = browserSync.stream
 
-gulp.task('default', ['inlinesource'], () => {
+gulp.task('default', ['webfonts', 'inlinesource'], () => {
 
   browserSync.init({
     server: './dist'
   })
-  
-  gulp.watch('src/css/*.css', ['inlinesource'])
-  gulp.watch('src/*.html', ['inlinesource'])
-});
 
-// gulp.task('html-watch', () => {
-//   return gulp.src('src/*.html')
-//     .pipe(gulp.dest('./dist'))
-//     .pipe(browserSync.stream());
-// })
+  gulp.watch('./src/css/*.css', ['inlinesource'])
+  gulp.watch('./src/*.html', ['inlinesource'])
+});
 
 gulp.task('inlinesource', () => {
   const options = {
@@ -29,4 +23,9 @@ gulp.task('inlinesource', () => {
     .pipe(inlineSource(options))
     .pipe(gulp.dest('./dist'))
     .pipe(browserSync.stream());
+})
+
+gulp.task('webfonts', () => {
+  return gulp.src('./src/fonts/*.{eot,ttf,svg,woff,woff2}')
+    .pipe(gulp.dest('./dist/fonts'))
 })
