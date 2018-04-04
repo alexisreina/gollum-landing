@@ -223,6 +223,16 @@ img {
   padding-right: 1rem;
 }
 
+.maps {
+  grid-area: maps;
+  background-color: #CDC7B9;
+}
+
+.instagram {
+  grid-area: instagram;
+  background-color: #A9A49A;
+}
+
 .maps-link, .instagram-link {
   display: flex;
   flex-direction: column;
@@ -238,20 +248,16 @@ img {
   margin-bottom: .7125rem
 }
 
-.maps {
-  grid-area: maps;
-  background-color: #CDC7B9;
-}
-
-.instagram {
-  grid-area: instagram;
-  background-color: #A9A49A;
-}
-
 .instagram-link {
   font-family: 'Nexa', sans-serif;
   color: #fff;
   font-size: 1.05rem
+}
+
+.maps-address {
+  display: inline-block;
+  line-height: 1.25;
+  padding-top: 2px;
 }
 
 /* Responsive */
@@ -300,6 +306,10 @@ img {
   .instagram-icon, .maps-icon {
     margin-bottom: 0;
     padding-right: .7125rem
+  }
+
+  .maps-address {
+    padding-top: 0;
   }
 }
 
