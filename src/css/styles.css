@@ -2,15 +2,15 @@
 
 @font-face {
     font-family: 'Nexa';
-    src: url('/fonts/NexaRustScriptL-0-Free-webfont.woff2') format('woff2'),
-         url('/fonts/NexaRustScriptL-0-Free-webfont.woff') format('woff');
+    src: url('fonts/NexaRustScriptL-0-Free-webfont.woff2') format('woff2'),
+         url('fonts/NexaRustScriptL-0-Free-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Museo';
-    src: url('/fonts/museosans-100.woff') format('woff');
+    src: url('fonts/museosans-100.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
