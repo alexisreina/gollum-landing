@@ -1,6 +1,10 @@
 const gulp = require('gulp')
+const runSequence = require('run-sequence')
 const browserSync = require('browser-sync')
 const inlineSource = require('gulp-inline-source')
+const clean = require('gulp-clean')
+const imagemin = require('gulp-imagemin')
+const htmlmin = require('gulp-htmlmin')
 const reload = browserSync.reload
 const stream = browserSync.stream
 
@@ -36,4 +40,38 @@ gulp.task('images', () => {
   return gulp
     .src('./src/img/*.{gif,jpg,jpeg,png,svg}')
     .pipe(gulp.dest('./dist/img'))
+})
+
+gulp.task('clean', () => {
+  return gulp
+    .src('./dist', { read: false })
+    .pipe(clean())
+})
+
+gulp.task('imagemin', () => {
+  return gulp
+    .src('./src/img/*.{gif,jpg,jpeg,png,svg}')
+    .pipe(imagemin())
+    .pipe(gulp.dest('./dist/img'))
+})
+
+gulp.task('htmlmin', () => {
+  return gulp
+    .src('./dist/*.html')
+    .pipe(htmlmin({
+      collapseWhitespace: true,
+      removeComments: true,
+      removeAttributeQuotes: true,
+      minifyCSS: true,
+      minifyURLs: true,
+    }))
+    .pipe(gulp.dest('./dist'))
+})
+
+gulp.task('build', () => {
+  return runSequence('clean', [
+    'inlinesource',
+    'webfonts',
+    'imagemin'
+  ], 'htmlmin')
 })
